@@ -10,6 +10,7 @@
     // Default Layout
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
+    --default-layout-horizonal-spacer: 24px;
 }
 
 * {
@@ -35,6 +36,7 @@ input,
 [tabindex] {
     outline: none;
     border: none;
+    cursor: pointer;
 }
 
 a[href] {
