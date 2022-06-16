@@ -20,80 +20,8 @@
     justify-content: space-between;
 }
 
-.search,
-.search-result {
-    width: 361px;
-}
-
-.search {
-    position: relative;
-    height: var(--search-height);
-    padding-left: 16px;
+.logo-link {
     display: flex;
-    background-color: rgba(22, 24, 35, 0.06);
-    border-radius: var(--search-border-radius);
-    border: 1.5px solid transparent;
-
-    input {
-        flex: 1;
-        height: 100%;
-        color: var(--balck);
-        caret-color: var(--primary);
-        font-size: 1.6rem;
-        background-color: transparent;
-    }
-
-    input:not(:placeholder-shown) ~ .search-btn {
-        color: rgba(22, 24, 35, 0.75);
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        top: var(--search-top-spacer);
-        right: var(--search-btn-width);
-        width: 1px;
-        height: calc(var(--search-height) - var(--search-top-spacer) * 2);
-        background-color: rgba(22, 24, 35, 0.12);
-    }
-
-    &:focus-within {
-        border-color: rgba(22, 24, 35, 0.2);
-    }
-}
-
-.search-title {
-    padding: 5px 12px;
-    font-size: 14px;
-    font-weight: 600;
-    color: rgba(22, 24, 35, 0.5);
-}
-
-.clear,
-.loading {
-    color: rgba(22, 24, 35, 0.34);
-    position: absolute;
-    right: calc(var(--search-btn-width) + 16px);
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.search-btn {
-    width: var(--search-btn-width);
-    height: 100%;
-    font-size: 1.8rem;
-    color: rgba(22, 24, 35, 0.34);
-    border-top-right-radius: var(--search-border-radius);
-    border-bottom-right-radius: var(--search-border-radius);
-
-    &:hover {
-        cursor: pointer;
-        background-color: rgba(22, 24, 35, 0.03);
-    }
-
-    &:active {
-        background-color: rgba(22, 24, 35, 0.06);
-    }
 }
 
 // action
@@ -103,11 +31,27 @@
 }
 
 .action-btn {
+    position: relative;
     color: #161823;
     background-color: transparent;
     font-size: 2.2rem;
     padding: 4px 12px;
     display: flex;
+}
+
+.badge {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    background-color: var(--primary);
+    color: var(--white);
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 0px 6px;
+    line-height: 2rem;
+    text-align: center;
 }
 
 .more-btn {

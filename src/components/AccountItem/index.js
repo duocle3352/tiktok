@@ -1,29 +1,33 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import style from './AcountItem.module.scss';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(style);
 
-function AcountItem() {
+function AcountItem({ data }) {
     return (
-        <div className={cx('wrapper')}>
-            <img
+        <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
+            <Image
                 className={cx('avatar')}
-                src="https://thuthuatnhanh.com/wp-content/uploads/2021/02/Anh-avatar-bua-cute-dep-390x390.jpg"
-                alt="Ngoc"
+                src={data.avatar}
+                alt={data.full_name}
             />
             <div className={cx('infor')}>
                 <h4 className={cx('name')}>
-                    <span>Dang Nhu Ngoc</span>
-                    <FontAwesomeIcon
-                        className={cx('check')}
-                        icon={faCheckCircle}
-                    />
+                    <span>{data.full_name}</span>
+                    {data.tick && (
+                        <FontAwesomeIcon
+                            className={cx('check')}
+                            icon={faCheckCircle}
+                        />
+                    )}
                 </h4>
-                <span className={cx('username')}>dangnhungoc</span>
+                <span className={cx('username')}>{data.nickname}</span>
             </div>
-        </div>
+        </Link>
     );
 }
 
