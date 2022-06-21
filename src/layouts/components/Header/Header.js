@@ -9,12 +9,11 @@ import {
     faSignOut,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import config from '~/config';
+import RenderIcon from './RenderIcon';
 import Menu from '~/components/Popper/Menu';
 import Button from '~/components/Button';
 import Image from '~/components/Image';
@@ -95,44 +94,23 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                {/* logo */}
                 <Link className={cx('logo-link')} to={config.routes.home}>
                     <img src={images.logo} alt="Tiktok" />
                 </Link>
-                {/* search */}
                 <Search />
-                {/* action */}
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
-                            <Tippy
-                                delay={[0, 200]}
-                                placement="bottom"
-                                content="Upload video"
-                            >
-                                <button className={cx('action-btn')}>
-                                    <UploadIcon />
-                                </button>
-                            </Tippy>
-                            <Tippy
-                                delay={[0, 200]}
-                                placement="bottom"
-                                content="Message"
-                            >
-                                <button className={cx('action-btn')}>
-                                    <MessageIcon />
-                                </button>
-                            </Tippy>
-                            <Tippy
-                                delay={[0, 200]}
-                                placement="bottom"
-                                content="Inbox"
-                            >
-                                <button className={cx('action-btn')}>
-                                    <InboxIcon />
-                                    <span className={cx('badge')}>12</span>
-                                </button>
-                            </Tippy>
+                            <RenderIcon content="Upload video">
+                                <UploadIcon />
+                            </RenderIcon>
+                            <RenderIcon content="Message">
+                                <MessageIcon />
+                            </RenderIcon>
+                            <RenderIcon content="Inbox">
+                                <InboxIcon />
+                                <span className={cx('badge')}>12</span>
+                            </RenderIcon>
                         </>
                     ) : (
                         <>
